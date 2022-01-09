@@ -1,0 +1,21 @@
+{
+  "name": "johnny",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "etherport-client": "^0.1.4",
+    "firmata": "^2.3.0",
+    "johnny-five": "^2.1.0",
+    "node-cron": "^3.0.0",
+    "socket.io": "^4.4.0",
+    "web3": "^1.6.1",
+    "ws": "^8.2.3"
+  }
+}
