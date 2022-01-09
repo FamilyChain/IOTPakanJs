@@ -5,7 +5,7 @@ const { Board, Servo } = require("johnny-five"),
   cron = require('node-cron'),
   Web3 = require('web3'),
   keypress = require("keypress"),
-  web3 = new Web3(proccess.env.RPC_URL),
+  web3 = new Web3(process.env.RPC_URL),
   statenum = 0,
   statejob = true;
 
