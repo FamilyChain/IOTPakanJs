@@ -4,16 +4,20 @@ const { Board, Servo } = require("johnny-five"),
   { EtherPortClient } = require('etherport-client'),
   cron = require('node-cron'),
   Web3 = require('web3'),
+  keypress = require("keypress"),
   web3 = new Web3(proccess.env.RPC_URL),
-  statenum = 0;
+  statenum = 0,
+  statejob = true;
+
+keypress(process.stdin);
 
 const board = new Board({
-    port: new EtherPortClient({
-      host: '192.168.8.103',
-      port: 3030
-    }),
-    repl: false
-  });
+  port: new EtherPortClient({
+    host: '192.168.8.103',
+    port: 3030
+  }),
+  repl: false
+});
 
   board.on("ready", () => {
   
@@ -23,7 +27,15 @@ const board = new Board({
     process.stdin.setEncoding("utf8");
     process.stdin.setRawMode(true);
 
-    cron.schedule('2 * * * *', () => {
+    process.stdin.on("keypress", (ch, key) => {
+      if (key.name === "space") {
+        statejob = false;
+      } else {
+        return;
+      }
+    });
+
+    var task = cron.schedule('2 * * * *', () => {
       if (statenum == 0) {
         servo.sweep();
       } else if (statenum == 1) {
@@ -43,4 +55,11 @@ const board = new Board({
           }, !stateeat ? 5000 : 3000);
       }
     });
+    task.start();
+    setInterval(() => {
+      if (!statejob) {
+        servo.stop();
+        task.stop();
+      }
+    }, 500);
   });
