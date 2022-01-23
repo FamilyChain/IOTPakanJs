@@ -1,22 +1,22 @@
 {
-  "name": "johnny",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node servo.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^10.0.0",
-    "etherport-client": "^0.1.4",
-    "firmata": "^2.3.0",
-    "johnny-five": "^2.1.0",
-    "keypress": "^0.2.1",
-    "node-cron": "^3.0.0",
-    "socket.io": "^4.4.0",
-    "web3": "^1.6.1",
-    "ws": "^8.2.3"
-  }
+    "name": "johnny",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node servo.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^10.0.0",
+        "etherport-client": "^0.1.4",
+        "firmata": "^2.3.0",
+        "johnny-five": "^2.1.0",
+        "keypress": "^0.2.1",
+        "moment": "^2.29.1",
+        "socket.io": "^4.4.0",
+        "web3": "^1.6.1",
+        "ws": "^8.2.3"
+    }
 }
